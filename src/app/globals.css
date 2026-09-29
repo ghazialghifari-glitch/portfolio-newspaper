@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F4F1EA;
+  --foreground: #111111;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  /* Efek noise/grain halus */
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(0,0,0,0.02) 0px,
+    rgba(0,0,0,0.02) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  overflow-x: hidden;
+}
+
+/* Garis-garis khas koran */
+.border-double-thick {
+  border-top: 4px double #111;
+  border-bottom: 1px solid #111;
+}
+
+.newspaper-separator {
+  height: 1px;
+  background: #ccc;
+  margin: 1rem 0;
+  position: relative;
+}
+
+/* Animasi Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar Custom */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #e4e1da;
+}
+::-webkit-scrollbar-thumb {
+  background: #8b0000;
+  border: 2px solid #e4e1da;
+}
+/* Animasi Teks Berjalan (Marquee) */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Efek Kertas Lecek saat Hover */
+.hover-crumple {
+  transition: all 0.3s ease;
+}
+.hover-crumple:hover {
+  transform: rotate(-1deg) scale(1.02);
+  box-shadow: 2px 4px 8px rgba(0,0,0,0.2);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
